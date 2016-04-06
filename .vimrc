@@ -34,6 +34,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'mattn/emmet-vim'
 " Plugin 'majutsushi/tagbar'
 " Plugin 'hallettj/jslint.vim'
 
@@ -69,14 +70,24 @@ let g:syntastic_check_on_wq = 0
 
 "let g:syntastic_javascript_checkers = ['jslint']
 
-" Jayhuang set for personal
+"" Jayhuang set for personal
 " add the line number
 set number
 " auto tab
 set ai
 " highlight cursor
 set cursorline
-
+" Set the hardtab
+let TabSize = 2
+"set tabstop = 2
+execute "set tabstop=".TabSize
+"set 2 spaces for line shift
+"set shiftwidth = 2
+execute "set shiftwidth=".TabSize
+" set indent
+set smartindent
+" hight the search result
+set hlsearch
 
 " Load the nerdtree plugin
 nnoremap <silent> <F5> :NERDTree<CR>
@@ -132,3 +143,7 @@ let tern_show_signature_in_pum = 1
 let tern_show_argument_hints = 'on_hold'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+"set for the emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
